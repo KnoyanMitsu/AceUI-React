@@ -38,7 +38,7 @@ function AceUITemplateWithSidebar({
       <div className="md:grid grid-cols-5 h-screen">
         {/* Desktop */}
         <div className="hidden md:flex col-span-1 p-6 flex-col gap-6">
-          <h1 className="text-3xl font-bold mb-10">{appname} test</h1>
+          <h1 className="text-3xl font-bold mb-10">{appname}</h1>
           <nav>
             <ul className="flex flex-col gap-2">
               {listMenu.map((item, index) => {
