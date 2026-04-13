@@ -47,7 +47,7 @@ function AceUITemplateWithSidebar({
                   <li key={index}>
                     <Link
                       href={item.link}
-                      className={`block px-4 py-2 h-12 flex items-center rounded-lg font-medium transition-all duration-300 ${
+                      className={`px-4 py-2 h-12 flex items-center rounded-lg font-medium transition-all duration-300 ${
                         isActive
                           ? "bg-blue-100 text-blue-800 shadow-md shadow-blue-500/20"
                           : "text-gray-600 hover:bg-[#f0f7ff] hover:text-blue-600"
