@@ -5,7 +5,7 @@ type AceUICardStatusProps = {
   title: string;
   value: string | number;
   icon: React.ReactNode;
-  color: "red" | "green" | "blue" | "yellow";
+  color: "primary" | "secondary" | "accent" | "red" | "green" | "yellow";
   unit?: string;
   toggle?: boolean;
 };
@@ -39,9 +39,16 @@ function AceUICardStatus({
               {icon}
             </div>
           )}
-          {color === "blue" && (
+          {color === "primary" && (
             <div
-              className={`rounded-md bg-blue-100 text-blue-500 p-2 w-fit mb-4`}
+              className={`rounded-md bg-secondary text-primary dark:bg-text dark:text-accent p-2 w-fit mb-4`}
+            >
+              {icon}
+            </div>
+          )}
+          {color === "secondary" && (
+            <div
+              className={`rounded-md bg-background text-secondary dark:bg-text dark:text-background p-2 w-fit mb-4`}
             >
               {icon}
             </div>
@@ -55,10 +62,18 @@ function AceUICardStatus({
           )}
           {/* text */}
           <div>
-            <h2 className="text-xl font-medium text-gray-500 mb-1">{title}</h2>
+            <h2 className="text-xl font-medium text-text/70 dark:text-background/70 mb-1">
+              {title}
+            </h2>
             <div className="flex items-baseline gap-1">
-              <p className="text-3xl font-bold text-gray-700">{value}</p>
-              {unit && <span className="text-md text-gray-700">{unit}</span>}
+              <p className="text-3xl font-bold text-text dark:text-background">
+                {value}
+              </p>
+              {unit && (
+                <span className="text-md text-text/80 dark:text-background/80">
+                  {unit}
+                </span>
+              )}
             </div>
           </div>
         </div>
@@ -68,11 +83,11 @@ function AceUICardStatus({
               defaultChecked={false}
               id={switchId}
               type="checkbox"
-              className="peer appearance-none w-11 h-6 bg-slate-200 rounded-full checked:bg-cyan-700 cursor-pointer transition-colors duration-300"
+              className="peer appearance-none w-11 h-6 bg-secondary dark:bg-text rounded-full checked:bg-primary dark:checked:bg-accent cursor-pointer transition-colors duration-300"
             />
             <label
               htmlFor={switchId}
-              className="absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full border border-slate-300 shadow-sm transition-transform duration-300 peer-checked:translate-x-5 peer-checked:border-cyan-700 cursor-pointer"
+              className="absolute top-0.5 left-0.5 w-5 h-5 bg-background rounded-full border border-secondary shadow-sm transition-transform duration-300 peer-checked:translate-x-5 peer-checked:border-primary dark:peer-checked:border-accent cursor-pointer"
             ></label>
           </div>
         )}

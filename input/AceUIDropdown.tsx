@@ -34,10 +34,10 @@ function AceUIDropdown({ title, actions }: Props) {
     <div className="relative inline-block text-left" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`flex items-center gap-2 border border-blue-500 transition-colors duration-300 rounded-md p-2 ${
+        className={`flex items-center gap-2 border border-primary dark:border-accent transition-colors duration-300 rounded-md p-2 ${
           isOpen
-            ? "bg-blue-500 text-white"
-            : "text-blue-500 hover:bg-blue-500 hover:text-white"
+            ? "bg-primary text-background dark:bg-accent dark:text-background"
+            : "text-primary hover:bg-primary hover:text-background dark:text-accent dark:hover:bg-accent dark:hover:text-background"
         }`}
       >
         {title}
@@ -48,7 +48,7 @@ function AceUIDropdown({ title, actions }: Props) {
       </button>
 
       {isOpen && (
-        <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-100 rounded-md shadow-lg z-50 overflow-hidden">
+        <div className="absolute right-0 mt-2 w-48 bg-background dark:bg-text dark:text-background border border-secondary dark:border-accent rounded-md shadow-lg z-50 overflow-hidden">
           <div className="py-1 flex flex-col">
             {actions.map((action, index) => (
               <button
@@ -57,7 +57,7 @@ function AceUIDropdown({ title, actions }: Props) {
                   action.onClick();
                   setIsOpen(false); // Otomatis menutup menu setelah action ditekan
                 }}
-                className="text-left px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                className="text-left px-4 py-2 text-sm text-text dark:text-background hover:bg-secondary hover:text-primary dark:hover:bg-accent dark:hover:text-background transition-colors"
               >
                 {action.title}
               </button>

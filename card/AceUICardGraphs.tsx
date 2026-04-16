@@ -42,40 +42,42 @@ function AceUICardGraphs({
             >
               <defs>
                 <linearGradient id="colorAir" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.8} />
-                  <stop offset="95%" stopColor="#3b82f6" stopOpacity={0} />
+                  <stop offset="5%" stopColor="#2f27ce" stopOpacity={0.8} />
+                  <stop offset="95%" stopColor="#2f27ce" stopOpacity={0} />
                 </linearGradient>
               </defs>
               <CartesianGrid
                 strokeDasharray="3 3"
                 vertical={false}
-                stroke="#e5e7eb"
+                stroke="#dedcff"
               />
               <XAxis
                 dataKey="time"
                 axisLine={false}
                 tickLine={false}
-                tick={{ fontSize: 12, fill: "#6b7280" }}
+                tick={{ fontSize: 12, fill: "#050315", opacity: 0.7 }}
                 dy={10}
               />
               <YAxis
                 domain={[start, end]} // <-- INI KUNCINYA: Mengatur batas bawah 20 dan atas 400
                 axisLine={false}
                 tickLine={false}
-                tick={{ fontSize: 12, fill: "#6b7280" }}
+                tick={{ fontSize: 12, fill: "#050315", opacity: 0.7 }}
               />
               <Tooltip
                 contentStyle={{
                   borderRadius: "8px",
-                  border: "none",
+                  border: "1px solid #dedcff",
                   boxShadow: "0 4px 6px -1px rgb(0 0 0 / 0.1)",
+                  backgroundColor: "#fbfbfe",
+                  color: "#050315",
                 }}
               />
               <Area
                 type="monotone"
                 dataKey={dataKey}
                 name={titlelegend}
-                stroke="#3b82f6"
+                stroke="#2f27ce"
                 fillOpacity={1}
                 fill="url(#colorAir)"
               />

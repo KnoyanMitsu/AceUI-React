@@ -66,7 +66,9 @@ function AceUICardWithGalerryGrid({
     <>
       <AceUICard>
         <div className="grid grid-cols-2 items-center mb-4">
-          <h1 className="text-xl font-bold mb-2 justify-start">{title}</h1>
+          <h1 className="text-xl font-bold mb-2 justify-start text-text dark:text-background">
+            {title}
+          </h1>
           {viewoption && (
             <div className="justify-end flex gap-4">
               <AceUIDropdown
@@ -93,12 +95,12 @@ function AceUICardWithGalerryGrid({
             </div>
           )}
         </div>
-        <div className="bg-gray-50 p-4 rounded-md h-[600] overflow-y-auto">
+        <div className="bg-secondary/30 dark:bg-accent/20 p-4 rounded-md h-[600px] overflow-y-auto">
           {children}
           <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-4">
             {filteredAndSortedContent.map((project, index) => (
               <div key={index} className="h-full">
-                <div className="bg-white shadow-md hover:shadow-lg transition-shadow rounded-xl h-full flex flex-col overflow-hidden border border-gray-100">
+                <div className="bg-background dark:bg-text shadow-md hover:shadow-lg transition-shadow rounded-xl h-full flex flex-col overflow-hidden border border-secondary dark:border-accent">
                   {project.image ? (
                     <img
                       src={project.image}
@@ -106,36 +108,40 @@ function AceUICardWithGalerryGrid({
                       alt={project.title}
                     />
                   ) : (
-                    <div className="w-full h-48 bg-gray-200 flex items-center justify-center">
-                      <span className="text-gray-400">No Image</span>
+                    <div className="w-full h-48 bg-secondary dark:bg-accent/50 flex items-center justify-center">
+                      <span className="text-text/50 dark:text-background/50">
+                        No Image
+                      </span>
                     </div>
                   )}
                   <div className="px-6 py-5 flex flex-col flex-grow">
-                    <h1 className="text-xl font-bold text-gray-900 mb-1">
+                    <h1 className="text-xl font-bold text-text dark:text-background mb-1">
                       {project.title}
                     </h1>
-                    <p className="text-gray-500 font-medium text-sm mb-4">
+                    <p className="text-text/70 dark:text-background/70 font-medium text-sm mb-4">
                       {project.year}
                     </p>
 
                     <div className="flex gap-2 mb-4">
                       {project.isPublic ? (
-                        <div className="bg-gray-900 rounded-full px-3 py-1 flex items-center">
-                          <p className="text-white font-medium text-xs">
+                        <div className="bg-primary rounded-full px-3 py-1 flex items-center">
+                          <p className="text-background font-medium text-xs">
                             Public
                           </p>
                         </div>
                       ) : (
-                        <div className="bg-gray-600 rounded-full px-3 py-1 flex items-center">
-                          <p className="text-white font-medium text-xs">
+                        <div className="bg-secondary dark:bg-accent rounded-full px-3 py-1 flex items-center">
+                          <p className="text-text dark:text-background font-medium text-xs">
                             Private
                           </p>
                         </div>
                       )}
 
                       {project.isLive && (
-                        <div className="bg-blue-600 rounded-full px-3 py-1 flex items-center">
-                          <p className="text-white font-medium text-xs">Live</p>
+                        <div className="bg-accent rounded-full px-3 py-1 flex items-center">
+                          <p className="text-background font-medium text-xs">
+                            Live
+                          </p>
                         </div>
                       )}
                     </div>
@@ -145,9 +151,9 @@ function AceUICardWithGalerryGrid({
                         {project.languages.map((lang, langIdx) => (
                           <div
                             key={langIdx}
-                            className="bg-gray-100 border border-gray-200 rounded-lg"
+                            className="bg-secondary dark:bg-text border border-primary dark:border-background rounded-lg"
                           >
-                            <p className="text-gray-700 font-medium text-xs px-2 py-1">
+                            <p className="text-primary dark:text-background font-medium text-xs px-2 py-1">
                               {lang}
                             </p>
                           </div>
@@ -156,7 +162,7 @@ function AceUICardWithGalerryGrid({
                     )}
 
                     <div className="mb-6 flex-grow">
-                      <p className="text-gray-600 text-sm line-clamp-3">
+                      <p className="text-text/80 dark:text-background/80 text-sm line-clamp-3">
                         {project.description}
                       </p>
                     </div>
@@ -174,7 +180,7 @@ function AceUICardWithGalerryGrid({
                             href={project.link.website}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="bg-blue-600 rounded-lg text-center py-2 flex items-center justify-center text-white font-medium text-sm hover:bg-blue-700 transition-colors"
+                            className="bg-primary rounded-lg text-center py-2 flex items-center justify-center text-background font-medium text-sm hover:bg-accent transition-colors"
                           >
                             Website
                           </a>
@@ -184,7 +190,7 @@ function AceUICardWithGalerryGrid({
                             href={project.link.source_code}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="bg-gray-900 rounded-lg text-center py-2 flex items-center justify-center text-white font-medium text-sm hover:bg-gray-800 transition-colors"
+                            className="bg-accent rounded-lg text-center py-2 flex items-center justify-center text-background font-medium text-sm hover:bg-primary transition-colors"
                           >
                             Source Code
                           </a>
