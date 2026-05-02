@@ -1,18 +1,22 @@
 import React from "react";
 
 type Props = {
-  title: string;
+  children: React.ReactNode;
   onClick?: () => void;
+  disable?: boolean;
+  types: "submit" | "reset" | "button" | undefined;
 };
 
-function AceUIButton({ title, onClick }: Props) {
+function AceUIButton({ children, onClick, disable, types }: Props) {
   return (
     <>
       <button
-        className="border border-primary text-primary hover:bg-primary hover:text-background dark:border-accent dark:text-accent dark:hover:bg-accent dark:hover:text-background transition-colors duration-300 rounded-md p-2"
+        className="border border-primary text-primary hover:bg-primary hover:text-background disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:text-primary transition-colors duration-300 rounded-md p-2"
         onClick={onClick}
+        disabled={disable}
+        type={types}
       >
-        {title}
+        {children}
       </button>
     </>
   );
